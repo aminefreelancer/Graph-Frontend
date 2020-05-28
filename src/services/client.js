@@ -35,5 +35,8 @@ export default {
     return apiClient.delete('/graphs/'+id);
   },
 
+  addNode(node) {
+    return apiClient.post('/nodes', node);
+  },
   
 }
