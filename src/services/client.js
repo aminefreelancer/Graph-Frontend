@@ -38,5 +38,9 @@ export default {
   addNode(node) {
     return apiClient.post('/nodes', node);
   },
+
+  deleteNode(id) {
+    return apiClient.delete('/nodes/'+id);
+  },
   
 }

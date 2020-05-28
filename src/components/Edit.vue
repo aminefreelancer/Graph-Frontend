@@ -39,6 +39,9 @@
                                 <b-link href="#" @click="editModal(node)" size="sm" class="btn mr-1 btn-sm btn-warning">
                                     <b-icon-pencil-square></b-icon-pencil-square> 
                                 </b-link>
+                                <b-link  @click="deleteNode(node.id)" size="sm" class="btn mr-1 btn-sm btn-danger">
+                                    <b-icon-trash></b-icon-trash> 
+                                </b-link>
                             </td>
                         </tr>
                     </tbody>
@@ -59,12 +62,12 @@
                                     <input class="form-check-input" type="checkbox" :id="neighbor.id" v-model="node.edges" :value="neighbor.id">
                                     <label class="form-check-label" :for="neighbor.id">{{neighbor.tooltip}} ({{neighbor.id}})</label>
                                 </div>
-
-                                
                             </div>
                         </div>
                     </form>
                 </b-modal>
+
+
             </div>
         </b-container>
     </div>
@@ -133,7 +136,7 @@
                 })
                 .catch(error => console.log(error))
             },
-            editGraph() {
+            editNode() {
                 this.loading = true;
                 Client.updateNode(this.node)
                 .then(() => {
@@ -148,7 +151,7 @@
                 })
                 .catch(error => console.log(error))
             },
-            deleteGraph(id) {
+            deleteNode(id) {
                 this.$bvModal.msgBoxConfirm('Please confirm that you want to delete this node.', {
                     title: 'Confirmation box',
                     size: 'sm',
