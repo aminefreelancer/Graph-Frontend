@@ -59,7 +59,9 @@
                             <h6 id="neighbor">Neighbor nodes</h6>
                             <div v-for="neighbor in graph.nodes" :key="neighbor.id" class="form-check form-check-inline">
                                 <div v-if="neighbor.id != node.id">
-                                    <input class="form-check-input" type="checkbox" :id="neighbor.id" v-model="node.edges" :value="neighbor.id">
+                                    <input class="form-check-input" type="checkbox"
+                                            :id="neighbor.id" v-model="node.edges" :value="neighbor.id"
+                                            >
                                     <label class="form-check-label" :for="neighbor.id">{{neighbor.tooltip}} ({{neighbor.id}})</label>
                                 </div>
                             </div>
@@ -119,7 +121,10 @@
                 this.$bvModal.show('modal-1')
                 this.node.id= item.id,
                 this.node.tooltip = item.tooltip
-                this.graph.edges = item.edges
+                this.node.edges = [];
+                item.edges.forEach(element => {
+                    this.node.edges.push(element.out_node_id)
+                });
             },
             addNode() {
                 Client.addNode(this.node)

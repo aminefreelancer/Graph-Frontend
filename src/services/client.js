@@ -38,7 +38,17 @@ export default {
   addNode(node) {
     return apiClient.post('/nodes', node);
   },
-
+  updateNode(node) {
+    let obj = {'tooltip': node.tooltip, 'id': this.id, 'edges': node.edges}
+    let strngObj = qs.stringify(obj)
+    return apiClient.put('/nodes/'+node.id, strngObj, 
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }
+    );
+  },
   deleteNode(id) {
     return apiClient.delete('/nodes/'+id);
   },
