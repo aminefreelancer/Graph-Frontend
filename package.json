@@ -13,6 +13,7 @@
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
     "jquery": "^1.9.1",
+    "moment": "^2.26.0",
     "vis-data": "^6.5.3",
     "vis-network": "^7.6.9",
     "vis-util": "^4.0.2",

@@ -6,12 +6,13 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import D3Network from 'vue-d3-network'
-
+import moment from 'moment'
 Vue.config.productionTip = false
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(D3Network)
+Vue.use(moment);
 new Vue({
   components: {
       D3Network
